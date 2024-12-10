@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sound Test</title>
+    <style>
+        button {
+            padding: 10px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sound Test</h1>
+    <button onclick="playSound('scratch')">Test Scratch</button>
+    <button onclick="playSound('airhorn')">Test Airhorn</button>
+    <button onclick="playSound('drum')">Test Drum</button>
+    <button onclick="playSound('transition')">Test Transition</button>
+    <button onclick="playSound('bass')">Test Bass</button>
+    <button onclick="playSound('cymbal')">Test Cymbal</button>
+
+    <script>
+        // Create audio elements
+        const sounds = {
+            scratch: new Audio('https://www.soundjay.com/mechanical/sounds/scratch-1.mp3'),
+            airhorn: new Audio('https://www.soundjay.com/misc/sounds/air-horn-1.mp3'),
+            drum: new Audio('https://www.soundjay.com/percussion/sounds/drum-roll-1.mp3'),
+            transition: new Audio('https://www.soundjay.com/mechanical/sounds/vinyl-static-1.mp3'),
+            bass: new Audio('https://www.soundjay.com/percussion/sounds/bass-drum-1.mp3'),
+            cymbal: new Audio('https://www.soundjay.com/percussion/sounds/cymbal-1.mp3')
+        };
+
+        // Preload all sounds
+        Object.values(sounds).forEach(audio => {
+            audio.load();
+        });
+
+        function playSound(name) {
+            const sound = sounds[name];
+            if (sound) {
+                // Reset the audio to start
+                sound.currentTime = 0;
+                // Play the sound
+                sound.play().catch(error => {
+                    console.error(`Error playing ${name}:`, error);
+                });
+            }
+        }
+    </script>
+</body>
+</html>

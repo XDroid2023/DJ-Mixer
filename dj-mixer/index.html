@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DJ Mixer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dj-console">
+        <div class="deck deck-left">
+            <div class="turntable">
+                <div class="record"></div>
+            </div>
+            <div class="controls">
+                <input type="file" id="audio1" accept="audio/*" class="audio-input">
+                <div class="control-group">
+                    <input type="range" id="volume1" class="volume-slider" min="0" max="100" value="100">
+                    <input type="range" id="speed1" class="speed-slider" min="0.5" max="2" step="0.1" value="1">
+                </div>
+                <button id="play1" class="play-btn">Play</button>
+            </div>
+        </div>
+
+        <div class="mixer-section">
+            <div class="crossfader-container">
+                <input type="range" id="crossfader" min="0" max="100" value="50">
+            </div>
+            <div class="effects-panel">
+                <h3>Sound Effects</h3>
+                <div class="effects-grid">
+                    <button class="effect-btn" data-sound="scratch">Scratch</button>
+                    <button class="effect-btn" data-sound="airhorn">Airhorn</button>
+                    <button class="effect-btn" data-sound="drum">Drum Roll</button>
+                    <button class="effect-btn" data-sound="transition">Transition</button>
+                    <button class="effect-btn" data-sound="bass">Bass Drop</button>
+                    <button class="effect-btn" data-sound="cymbal">Cymbal</button>
+                </div>
+                <div class="effect-controls">
+                    <label>Effect Volume</label>
+                    <input type="range" id="effectVolume" min="0" max="100" value="80">
+                </div>
+            </div>
+        </div>
+
+        <div class="deck deck-right">
+            <div class="turntable">
+                <div class="record"></div>
+            </div>
+            <div class="controls">
+                <input type="file" id="audio2" accept="audio/*" class="audio-input">
+                <div class="control-group">
+                    <input type="range" id="volume2" class="volume-slider" min="0" max="100" value="100">
+                    <input type="range" id="speed2" class="speed-slider" min="0.5" max="2" step="0.1" value="1">
+                </div>
+                <button id="play2" class="play-btn">Play</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
